@@ -20,6 +20,7 @@ public class IntBoardTests {
 	@Before
 	public void init() {
 		board = new IntBoard();
+		board.calcAdjacencies();
 	}
 	
 	@Test
@@ -136,37 +137,40 @@ public class IntBoardTests {
 	{
 		board.startTargets(7, 3);
 		Set targets= board.getTargets();
-		Assert.assertEquals(6, targets.size());
+		Assert.assertEquals(7, targets.size());
 		Assert.assertTrue(targets.contains(4));
 		Assert.assertTrue(targets.contains(1));
 		Assert.assertTrue(targets.contains(9));
 		Assert.assertTrue(targets.contains(14));
 		Assert.assertTrue(targets.contains(11));
 		Assert.assertTrue(targets.contains(3));
+		Assert.assertTrue(targets.contains(6));
 	}
 	@Test
 	public void testTargets8_3()
 	{
 		board.startTargets(8, 3);
 		Set targets= board.getTargets();
-		Assert.assertEquals(6, targets.size());
+		Assert.assertEquals(7, targets.size());
 		Assert.assertTrue(targets.contains(6));
 		Assert.assertTrue(targets.contains(11));
 		Assert.assertTrue(targets.contains(14));
 		Assert.assertTrue(targets.contains(12));
 		Assert.assertTrue(targets.contains(4));
 		Assert.assertTrue(targets.contains(1));
+		Assert.assertTrue(targets.contains(9));
 	}
 	@Test
 	public void testTargets10_2()
 	{
 		board.startTargets(10, 2);
 		Set targets= board.getTargets();
-		Assert.assertEquals(5, targets.size());
+		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(5));
 		Assert.assertTrue(targets.contains(7));
 		Assert.assertTrue(targets.contains(15));
 		Assert.assertTrue(targets.contains(13));
+		Assert.assertTrue(targets.contains(8));
 	}
 }
